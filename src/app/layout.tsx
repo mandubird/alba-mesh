@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "급구커버 | 갑자기 빈 근무를, 검증된 경험자로",
+  title: "급구커버 | 갑자기 알바 펑크났나요?",
   description:
-    "카페 알바가 갑자기 취소했을 때, 당일·익일 공백을 근처의 경험자로 빠르게 연결해주는 소상공인 긴급 대타 매칭 서비스",
+    "미사역 인근 베타 테스트 중. 갑작스런 근무 공백을 사장님과 근무자를 빠르게 연결하는 긴급 대타 매칭 실험 서비스입니다.",
 };
 
 export default function RootLayout({

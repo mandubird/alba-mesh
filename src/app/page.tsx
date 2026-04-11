@@ -1,8 +1,11 @@
-import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { KakaoCtaLinks } from "@/components/KakaoCtaLinks";
+import { getKakaoOpenChatUrls } from "@/lib/pretotype";
 
 export default function LandingPage() {
+  const kakao = getKakaoOpenChatUrls();
+
   return (
     <>
       <Header />
@@ -10,73 +13,67 @@ export default function LandingPage() {
         {/* 히어로 */}
         <section className="border-b border-stone-200 bg-gradient-to-b from-teal-50/50 to-white">
           <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-            <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+            <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-start">
               <div>
                 <h1 className="text-3xl font-bold leading-tight text-stone-900 md:text-4xl">
-                  갑자기 빈 근무를,
-                  <br />
-                  검증된 경험자로 빠르게 메우세요
+                  갑자기 알바 펑크났나요?
                 </h1>
-                <p className="mt-4 text-lg text-stone-600">
-                  카페 알바가 갑자기 취소했을 때,
-                  <br />
-                  당일·익일 공백을 근처의 경험자로 빠르게 연결해주는
-                  <br />
-                  <strong className="text-stone-800">소상공인 긴급 대타 매칭 서비스</strong>
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link
-                    href="/auth/signup?role=owner"
-                    className="rounded-lg bg-primary px-6 py-3 font-medium text-white hover:bg-primary-dark"
-                  >
-                    사장님으로 시작하기
-                  </Link>
-                  <Link
-                    href="/auth/signup?role=worker"
-                    className="rounded-lg border-2 border-primary px-6 py-3 font-medium text-primary hover:bg-teal-50"
-                  >
-                    대타로 참여하기
-                  </Link>
+                <div className="mt-6">
+                  <KakaoCtaLinks variant="hero" />
                 </div>
-                <p className="mt-4 text-sm text-stone-500">
-                  알바뿐 아니라, 빈 시간이 있는 사장님도 검증된 대타로 참여할 수 있습니다.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {["전화번호 인증", "업종 경험 태그", "출근률 공개", "재호출 가능"].map(
-                    (badge) => (
-                      <span
-                        key={badge}
-                        className="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800"
-                      >
-                        {badge}
-                      </span>
-                    )
-                  )}
+                <div className="mt-6 space-y-2 text-sm text-stone-600">
+                  <p>⚡ 평균 30분 내 연결 (테스트 운영 중)</p>
+                  <p>
+                    📍 현재 미사역 인근에서 소규모 테스트 중입니다
+                    <br />
+                    <span className="text-stone-500">
+                      ※ 상황에 따라 매칭이 어려울 수 있습니다
+                    </span>
+                  </p>
+                  <p className="text-stone-700">👉 지금 당장 필요한 경우에만 이용해주세요</p>
                 </div>
               </div>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
+                <p className="text-sm font-medium text-stone-700">
+                  📍 이런 식으로 요청이 들어옵니다 (예시)
+                </p>
                 <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
-                  <span className="inline-block rounded bg-urgent/10 px-2 py-0.5 text-xs font-medium text-urgent">
-                    긴급
-                  </span>
-                  <p className="mt-2 font-medium">오늘 18:00 ~ 22:00</p>
-                  <p className="text-sm text-stone-600">성수동 카페 / 마감 보조</p>
-                  <p className="mt-1 text-primary font-semibold">시급 13,000원</p>
+                  <p className="font-medium">오늘 18:00 ~ 22:00</p>
+                  <p className="text-sm text-stone-600">미사역 카페 / 마감 보조</p>
+                  <p className="mt-1 font-semibold text-primary">시급 13,000원</p>
                   <p className="text-xs text-stone-500">경력자 우선 · 도보 12분</p>
-                  <button className="mt-3 w-full rounded-lg bg-primary py-2 text-sm font-medium text-white">
-                    즉시 지원 가능
-                  </button>
                 </div>
-                <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
-                  <p className="font-medium">김OO</p>
-                  <p className="text-sm text-stone-600">카페 경력 2년 · 출근률 98%</p>
-                  <p className="text-xs text-stone-500">최근 근무 12회 · 재호출 4회</p>
-                  <p className="mt-1 text-xs text-green-600">지금 출발 가능</p>
-                  <button className="mt-3 w-full rounded-lg border border-primary py-2 text-sm font-medium text-primary">
-                    바로 요청하기
-                  </button>
-                </div>
+                <p className="text-sm text-stone-600">
+                  👉 이런 조건으로 요청하면 지금 출발 가능한 근무자가 연결됩니다
+                </p>
               </div>
+            </div>
+
+            <div className="mt-12 max-w-2xl border-t border-stone-200 pt-10">
+              <p className="text-lg text-stone-600">
+                갑자기 빈 근무를, 검증된 경험자로 빠르게 메우세요.
+                <br />
+                카페 알바가 갑자기 취소했을 때,
+                <br />
+                당일·익일 공백을 근처의 경험자로 빠르게 연결해주는
+                <br />
+                <strong className="text-stone-800">소상공인 긴급 대타 매칭 서비스</strong>
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["전화번호 인증", "업종 경험 태그", "출근률 공개", "재호출 가능"].map(
+                  (badge) => (
+                    <span
+                      key={badge}
+                      className="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800"
+                    >
+                      {badge}
+                    </span>
+                  )
+                )}
+              </div>
+              <p className="mt-4 text-sm text-stone-500">
+                알바뿐 아니라, 빈 시간이 있는 사장님도 검증된 대타로 참여할 수 있습니다.
+              </p>
             </div>
           </div>
         </section>
@@ -202,12 +199,14 @@ export default function LandingPage() {
               사장님도 때로는 사람을 구하는 입장이면서, 어떤 날에는 직접 일하러 갈 수 있는
               공급자입니다. 이 현실을 공급망으로 연결합니다.
             </p>
-            <Link
-              href="/auth/signup?role=worker"
+            <a
+              href={kakao.worker}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-block rounded-lg bg-primary px-6 py-3 font-medium text-white hover:bg-primary-dark"
             >
-              대타로 등록하기
-            </Link>
+              ⚡ 지금 출발 가능한 알바 참여 (카톡)
+            </a>
           </div>
         </section>
 
@@ -250,22 +249,10 @@ export default function LandingPage() {
               오늘 비는 근무, 오늘 해결하세요
             </h2>
             <p className="mt-4 opacity-90">
-              내일 오픈이 비었거나, 오늘 저녁 피크타임이 급하다면 지금 바로 공백을 등록하고 근처
-              경험자를 확인해보세요.
+              내일 오픈이 비었거나, 오늘 저녁 피크타임이 급하다면 카톡으로 바로 연결해 보세요.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link
-                href="/dashboard/owner/shifts/new"
-                className="rounded-lg bg-white px-6 py-3 font-medium text-primary hover:bg-stone-100"
-              >
-                지금 공백 등록하기
-              </Link>
-              <Link
-                href="/auth/signup?role=worker"
-                className="rounded-lg border-2 border-white px-6 py-3 font-medium hover:bg-white/10"
-              >
-                대타로 참여하기
-              </Link>
+            <div className="mt-8">
+              <KakaoCtaLinks variant="footerCta" />
             </div>
           </div>
         </section>

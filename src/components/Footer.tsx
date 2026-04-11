@@ -9,8 +9,9 @@ export function Footer() {
             <Link href="/" className="text-lg font-bold text-primary">
               급구커버
             </Link>
-            <p className="mt-2 text-sm text-stone-500">
-              현재 MVP: 카페 / 1개 지역 한정 운영
+            <p className="mt-2 max-w-sm text-sm text-stone-500">
+              갑작스럽게 발생한 근무 공백을 사장님과 근무자를 빠르게 연결해 줍니다. 현재 미사역
+              인근에서 베타(Pretotype) 테스트 중이며, 정식 출시 전 검증 단계입니다.
             </p>
           </div>
           <div className="flex flex-wrap gap-6">
