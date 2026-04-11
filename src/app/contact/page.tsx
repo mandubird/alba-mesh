@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "example@email.com";
+import { CONTACT_EMAIL } from "@/lib/contact";
 const KAKAO_CHANNEL = process.env.NEXT_PUBLIC_KAKAO_CHANNEL_URL;
 
 export const metadata: Metadata = {

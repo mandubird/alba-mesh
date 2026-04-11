@@ -16,8 +16,21 @@ body {
   background: var(--background);
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* iOS 홈 인디케이터·노치 대응 */
+  .pb-safe {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
   }
 }
